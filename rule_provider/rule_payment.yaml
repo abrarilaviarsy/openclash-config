@@ -1,5 +1,6 @@
 payload:
 #BRI
+- DOMAIN-SUFFIX,efiling.bri.co.id
 - DOMAIN-SUFFIX,vpn2.bri.co.id
 - DOMAIN-SUFFIX,infolelang.bri.co.id
 - DOMAIN-SUFFIX,vpn.bri.co.id

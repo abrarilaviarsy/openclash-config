@@ -2,4 +2,5 @@ payload:
 #Domain-Suffix
 - DOMAIN-SUFFIX,duolingo.com
 
-#Keyword-Suffix
+#Domain-Keyword
+- DOMAIN-KEYWORD,duolingo

@@ -1,0 +1,15 @@
+proxies:
+  - name: SG-2 🇸🇬
+    server: 172.67.139.111 # isi bug
+    port: 443
+    type: trojan
+    password: yuhuu_hidessh # isi uuid
+    skip-cert-verify: true
+    sni: sg5-vip.csrvpn.net
+    network: ws
+    ws-opts: 
+      path: /trojan
+      headers: 
+        Host: sg5-vip.csrvpn.net
+    udp: true
+    interface-name: eth2

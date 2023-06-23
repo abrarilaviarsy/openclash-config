@@ -1,0 +1,29 @@
+proxies:
+  - name: ID-1 🇮🇩
+    server: bug.com # isi bug
+    port: 443
+    type: trojan
+    password: uuid # isi uuid
+    skip-cert-verify: true
+    sni: sni.com
+    network: ws
+    ws-opts: 
+      path: /trojan
+      headers: 
+        Host: host.com
+    udp: true
+    interface-name: eth1
+  - name: ID-2 🇮🇩
+    server: bug.com #isi bug
+    port: 443
+    type: trojan
+    password: uuid # isi uuid
+    skip-cert-verify: true
+    sni: sni.com
+    network: ws
+    ws-opts: 
+      path: /trojan
+      headers: 
+        Host: host.com
+    udp: true
+    interface-name: eth2

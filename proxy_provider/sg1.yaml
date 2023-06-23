@@ -1,15 +1,15 @@
 proxies:
   - name: SG-1 🇸🇬
-    server: 172.67.139.111 # isi bug
+    server: bug.com # isi bug
     port: 443
     type: trojan
-    password: yuhuu_hidessh #isi uuid
+    password: p4ssw0rd #isi uuid
     skip-cert-verify: true
-    sni: sg5-vip.csrvpn.net
+    sni: sni.com
     network: ws
     ws-opts: 
       path: /trojan
       headers: 
-        Host: sg5-vip.csrvpn.net
+        Host: host.com
     udp: true
-    interface-name: eth1
+    interface-name: eth1 #Opsional, hapus jika menggunakan single modem

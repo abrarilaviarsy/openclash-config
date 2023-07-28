@@ -121,104 +121,155 @@ proxy-providers:
 rule-providers:
 #rule-providers yang dikecualikan: Pay, Umum
   Pay:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_payment.yaml
     path: "./rule_provider/rule_payment.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Game:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_games.yaml
     path: "./rule_provider/rule_games.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Gaming:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_gaming.yaml
     path: "./rule_provider/rule_gaming.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Port-Games:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_portgames.yaml
     path: "./rule_provider/rule_portgames.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   TikTok:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_tiktok.yaml
     path: "./rule_provider/rule_tiktok.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Google-Play-Store:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_playstore.yaml
     path: "./rule_provider/rule_playstore.yaml"
+    interval: 86400  # Pembaruan setiap 4 jam sekali
   Telegram-CIDR:
-    type: file
+    type: http
     behavior: ipcidr
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_telegramcidr.yaml
     path: "./rule_provider/rule_telegramcidr.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Telegram:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_telegram.yaml
     path: "./rule_provider/rule_telegram.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Metaverse:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_metaverse.yaml
     path: "./rule_provider/rule_metaverse.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Umum:
-    type: file
+    type: http
     behavior: classical
+    path: "./rule_provider/rule_umum.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_umum.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Direct:
-    type: file
+    type: http
     behavior: classical
     path: "./rule_provider/rule_direct.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_direct.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   False-Positive:
-    type: file
+    type: http
     behavior: classical
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_falsepositive.yaml
     path: "./rule_provider/rule_falsepositive.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   YouTube:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_youtube.yaml
     path: "./rule_provider/rule_youtube.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Speedtest:
-    type: file
+    type: http
     behavior: classical
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_speedtest.yaml
     path: "./rule_provider/rule_speedtest.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Twitter:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_twitter.yaml
     path: "./rule_provider/rule_twitter.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Twitch:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_twitch.yaml
     path: "./rule_provider/rule_twitch.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Netflix:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_netflix.yaml
     path: "./rule_provider/rule_netflix.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Prime-Video:
-    type: file
+    type: http
     behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_primevideo.yaml
     path: "./rule_provider/rule_primevideo.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Disney+:
-    type: file
+    type: http
     behavior: classical
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_disneyplus.yaml
     path: "./rule_provider/rule_disneyplus.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Streaming:
-    type: file
+    type: http
     behavior: classical
     path: "./rule_provider/rule_streaming.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_streaming.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Indonesia-Service:
-    type: file
+    type: http
     behavior: classical
     path: "./rule_provider/rule_indo.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_indo.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Instagram:
-    type: file
+    type: http
     behavior: domain
     path: "./rule_provider/rule_instagram.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_instagram.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   GoogleFCM:
-    type: file
+    type: http
     behavior: domain
     path: "./rule_provider/rule_googlefcm.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_googlefcm.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Video-Conferences:
-    type: file
+    type: http
     behavior: classical
     path: "./rule_provider/rule_videoconferences.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_videoconferences.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
   Custom-Rule-Direct:
-    type: file
+    type: http
     behavior: classical
     path: "./rule_provider/customrule_direct.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/customrule_direct.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
 rules:
   - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
   - DST-PORT,22,Server List 🔑

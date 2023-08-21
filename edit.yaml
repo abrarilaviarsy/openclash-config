@@ -1,0 +1,158 @@
+---
+rule-providers:
+  Game:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_games.yaml"
+  Gaming:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_gaming.yaml"
+  Port-Games:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_portgames.yaml"
+  Direct:
+    type: file
+    behavior: classical
+    path: "./rule_provider/rule_direct.yaml"
+  Indonesia-Service:
+    type: file
+    behavior: classical
+    path: "./rule_provider/rule_indo.yaml"
+  GoogleFCM:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_googlefcm.yaml"
+  Custom-Rule-Direct:
+    type: file
+    behavior: classical
+    path: "./rule_provider/customrule_direct.yaml"
+proxy-providers:
+  PP-SG:
+    type: file
+    path: "./proxy_provider/sg.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+  PP-ID:
+    type: file
+    path: "./proxy_provider/id.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+proxy-groups:
+- name: List Server
+  type: select
+  disable-udp: false
+  proxies: (DIRECT, ID,SG)
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+- name: ID
+  type: select
+  disable-udp: false
+  use: (PP-ID)
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+- name: SG
+  type: select
+  disable-udp: false
+  use: (PP-SG)
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+- name: Reguler
+  type: select
+  disable-udp: false
+  proxies: (DIRECT)
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+- name: Games
+  type: select
+  disable-udp: false
+  proxies: (DIRECT, ID, SG)
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+- name: Port Games
+  type: select
+  disable-udp: false
+  proxies: (DIRECT, ID, SG)
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+- name: Rule Reguler
+  type: select
+  disable-udp: false
+  proxies: (DIRECT, ID, SG)
+  url: http://www.gstatic.com/generate_204
+  interval: '300'
+dns:
+  nameserver:
+  - dhcp://"eth1"
+  - 192.168.8.1
+  - 8.8.8.8#
+  - 8.8.4.4#
+  - https://dns.adguard.com/dns-query#
+  - https://dns.google/dns-query#
+  - tls://dns.adguard.com#
+  - tls://dns.google#
+  enable: true
+  ipv6: false
+  enhanced-mode: redir-host
+  listen: 0.0.0.0:7874
+  fake-ip-filter:
+  - "+.*"
+  default-nameserver:
+  - 192.168.8.1
+  - 192.168.9.1
+  - 8.8.8.8#
+  - 8.8.4.4#
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+external-controller: 0.0.0.0:9090
+secret: aemr
+bind-address: "*"
+external-ui: "/usr/share/openclash/ui"
+ipv6: false
+tun:
+  enable: true
+  stack: system
+  device: utun
+  auto-route: false
+  auto-detect-interface: false
+  dns-hijack:
+  - tcp://any:53
+profile:
+  store-selected: true
+  store-fake-ip: true
+rules:
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+  # Rule Games
+- RULE-SET,Game,Games
+- RULE-SET,Gaming,Games
+- RULE-SET,Port-Games,Port Games
+  # Rule Direct/Kuota Reguler
+- RULE-SET,Direct,Rule Reguler
+- RULE-SET,Indonesia-Service,Rule Reguler
+- RULE-SET,Custom-Rule-Direct,Rule Reguler
+- RULE-SET,GoogleFCM,Rule Reguler
+#
+- MATCH,List Server
+geodata-mode: false
+geodata-loader: memconservative
+sniffer:
+  enable: true
+  sniffing:
+  - tls
+  - http
+tcp-concurrent: true

@@ -1,0 +1,140 @@
+# Made with ♥️ by Abrari Laviarsy
+#Aktifkan Meta Core untuk menjalankan config
+proxies:
+#ProxyGroups
+proxy-groups:
+  - name: Proxies 🚦
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Indonesia 🇮🇩, Singapore 🇸🇬]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Indonesia 🇮🇩
+    type: select
+    disable-udp: false
+    use: [Provider-ID 🇮🇩]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Singapore 🇸🇬
+    type: select
+    disable-udp: false
+    use: [Provider-SG 🇸🇬]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Gaming 🎮 (Lobby Games) • TCP
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Indonesia 🇮🇩, Singapore 🇸🇬]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Gaming 🎮 (In-Game) • UDP
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Indonesia 🇮🇩, Singapore 🇸🇬]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Direct Path ♥️
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Indonesia 🇮🇩, Singapore 🇸🇬]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: VPN Path ♥️
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Indonesia 🇮🇩, Singapore 🇸🇬]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+#ProxyProviders
+proxy-providers:
+  Provider-SG 🇸🇬:
+    type: file
+    path: "./proxy_provider/sg.yaml"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+  Provider-ID 🇮🇩:
+    type: file
+    path: "./proxy_provider/id.yaml"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+#RuleProviders
+rule-providers:
+  Game:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_games.yaml"
+  Gaming:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_gaming.yaml"
+  Port-Games:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_portgames.yaml"
+  Port-Games-Latest:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_portgameslatest.yaml"
+  Direct:
+    type: file
+    behavior: classical
+    path: "./rule_provider/rule_direct.yaml"
+  Indonesia-Service:
+    type: file
+    behavior: classical
+    path: "./rule_provider/rule_indo.yaml"
+  GoogleFCM:
+    type: file
+    behavior: domain
+    path: "./rule_provider/rule_googlefcm.yaml"
+  Custom-Rule-Direct:
+    type: file
+    behavior: classical
+    path: "./rule_provider/customrule_direct.yaml"
+  Custom-Rule-VPN:
+    type: file
+    behavior: classical
+    path: "./rule_provider/customrule_vpn.yaml"
+  Speedtest:
+    type: file
+    behavior: classical
+    path: "./rule_provider/rule_speedtest.yaml"
+  Umum:
+    type: file
+    behavior: classical
+    path: "./rule_provider/rule_umum.yaml"
+#RuleProviders
+rules:
+# - AND,((NETWORK,udp),(OR,((DST-PORT,443),(GEOSITE,youtube)))),REJECT
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+  #RuleGames
+- RULE-SET,Game,Gaming 🎮 (Lobby Games) • TCP
+- RULE-SET,Gaming,Gaming 🎮 (Lobby Games) • TCP
+- RULE-SET,Port-Games,Gaming 🎮 (In-Game) • UDP
+- NOT,((RULE-SET,Umum)),Gaming 🎮 (In-Game) • UDP
+  #RuleDirect
+- RULE-SET,Direct,Direct Path ♥️
+- RULE-SET,Indonesia-Service,Direct Path ♥️
+- RULE-SET,Custom-Rule-Direct,Direct Path ♥️
+- RULE-SET,GoogleFCM,Direct Path ♥️
+- RULE-SET,Port-Games,Gaming 🎮 (In-Game) • UDP
+- RULE-SET,Port-Games-Latest,Gaming 🎮 (In-Game) • UDP
+  #RuleVPN
+- RULE-SET,Umum,VPN Path ♥️
+- RULE-SET,Custom-Rule-VPN,VPN Path ♥️
+- RULE-SET,Gaming,VPN Path ♥️
+- RULE-SET,Game,VPN Path ♥️
+  #DomainSite
+- DOMAIN-SUFFIX,www.liveon.id,DIRECT
+  #Results
+- MATCH,Proxies 🚦
+#Configuration
+unified-delay: true

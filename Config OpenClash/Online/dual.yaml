@@ -1,0 +1,170 @@
+#Made with ♥️ by Abrari Laviarsy
+#Aktifkan Meta Core untuk menjalankan config
+proxies:
+#ProxyGroups
+proxy-groups:
+  - name: Proxies 🚦
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Account 1 - eth1 ⚡
+    type: select
+    disable-udp: false
+    interface-name: eth1
+    use: [Account-Provider 🔌]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Account 2 - wwan0 ⚡
+    type: select
+    disable-udp: false
+    interface-name: wwan0
+    use: [Account-Provider 🔌]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Account 3 - usb0 ⚡
+    type: select
+    disable-udp: false
+    interface-name: usb0
+    use: [Account-Provider 🔌]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Gaming 🎮 (Lobby Games) • TCP
+    type: select
+    disable-udp: false
+    proxies: [Direct Game - eth1 🕹️, Direct Game - wwan0 🕹️, Direct Game - usb0 🕹️, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Gaming 🎮 (In-Game) • UDP
+    type: select
+    disable-udp: false
+    proxies: [Direct Game - eth1 🕹️, Direct Game - wwan0 🕹️, Direct Game - usb0 🕹️, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Direct Path ♥️
+    type: select
+    disable-udp: false
+    proxies: [Direct Game - eth1 🕹️, Direct Game - wwan0 🕹️, Direct Game - usb0 🕹️, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: VPN Path ♥️
+    type: select
+    disable-udp: false
+    proxies: [Direct Game - eth1 🕹️, Direct Game - wwan0 🕹️, Direct Game - usb0 🕹️, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  #PisahTrafik - Games
+  #Sesuaikan dengan interface-name yang terdeteksi
+  - name: Direct Game - eth1 🕹️
+    type: select
+    disable-udp: false
+    interface-name: eth1
+    proxies: [DIRECT, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Direct Game - wwan0 🕹️
+    type: select
+    disable-udp: false
+    interface-name: wwan0
+    proxies: [DIRECT, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+  - name: Direct Game - usb0 🕹️
+    type: select
+    disable-udp: false
+    interface-name: usb0
+    proxies: [DIRECT, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    url: http://cp.cloudflare.com/generate_204
+    interval: '300'
+#ProxyProviders
+proxy-providers:
+  Account-Provider 🔌:
+    type: file
+    path: "./proxy_provider/account.yaml"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
+#RuleProviders
+#RuleUpdate: Setiap rule-providers akan memperbarui listnya secara otomatis setiap 4 jam sekali
+rule-providers:
+  Game:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_games.yaml
+    path: "./rule_provider/rule_games.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
+  Gaming:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_gaming.yaml
+    path: "./rule_provider/rule_gaming.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
+  Port-Games:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_portgames.yaml
+    path: "./rule_provider/rule_portgames.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
+  Port-Games-Latest:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_portgameslatest.yaml
+    path: "./rule_provider/rule_portgameslatest.yaml"
+  Direct:
+    type: http
+    behavior: classical
+    path: "./rule_provider/rule_direct.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_direct.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
+  Indonesia-Service:
+    type: http
+    behavior: classical
+    path: "./rule_provider/rule_direct.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_indo.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
+  GoogleFCM:
+    type: http
+    behavior: domain
+    path: "./rule_provider/rule_googlefcm.yaml"
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GoogleFCM/GoogleFCM.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
+  Speedtest:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_speedtest.yaml
+    path: "./rule_provider/rule_speedtest.yaml"
+    interval: 86400 # Pembaruan setiap 4 jam sekali
+  Umum:
+    type: http
+    behavior: classical
+    path: "./rule_provider/rule_umum.yaml"
+    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_umum.yaml
+    interval: 86400 # Pembaruan setiap 4 jam sekali
+#RuleProviders
+rules:
+# - AND,((NETWORK,udp),(OR,((DST-PORT,443),(GEOSITE,youtube)))),REJECT
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+  #RuleGames
+- RULE-SET,Game,Gaming 🎮 (Lobby Games) • TCP
+- RULE-SET,Gaming,Gaming 🎮 (Lobby Games) • TCP
+- RULE-SET,Port-Games,Gaming 🎮 (In-Game) • UDP
+- RULE-SET,Port-Games-Latest,Gaming 🎮 (In-Game) • UDP
+- NOT,((RULE-SET,Umum)),Gaming 🎮 (In-Game) • UDP
+  #RuleDirect
+- RULE-SET,Direct,Direct Path ♥️
+- RULE-SET,Indonesia-Service,Direct Path ♥️
+- RULE-SET,GoogleFCM,Direct Path ♥️
+  #RuleVPN
+- RULE-SET,Umum,VPN Path ♥️
+- RULE-SET,Gaming,VPN Path ♥️
+- RULE-SET,Game,VPN Path ♥️
+  #Results
+- MATCH,Proxies 🚦
+#Configuration
+unified-delay: true

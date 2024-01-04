@@ -12,6 +12,7 @@ proxy-groups:
   - name: Account ⚡
     type: select
     disable-udp: false
+    proxies: [REJECT]
     use: [Account-Provider 🔌]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'

@@ -1,0 +1,52 @@
+proxies:
+  - name: Account 🔑 (VMESS/Port-80)
+    type: vmess
+    server: server.com
+    port: 80
+    uuid: uuid
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: false
+    global-padding: false
+    authenticated-length: false
+    skip-cert-verify: true
+    tls: false
+    network: ws
+    ws-opts:
+      path: "/vmess"
+      headers:
+        Host: host.com
+
+  - name: Account 🔑 (VMESS/Port-443)
+    type: vmess
+    server: server.com
+    port: 443
+    uuid: uuid
+    alterId: 0
+    cipher: auto
+    udp: true
+    xudp: false
+    global-padding: false
+    authenticated-length: false
+    skip-cert-verify: true
+    tls: true
+    network: ws
+    ws-opts:
+      path: "/vmess"
+      headers:
+        Host: host.com
+        
+  - name: Account 🔑 (Trojan/Port-443)
+    server: server.com
+    port: 443
+    type: trojan
+    password: uuid
+    skip-cert-verify: true
+    sni: sni.com
+    network: ws
+    ws-opts: 
+      path: /trojan-ws
+      headers: 
+        Host: host.com
+    udp: true

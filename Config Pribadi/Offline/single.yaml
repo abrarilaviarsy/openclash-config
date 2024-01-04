@@ -107,17 +107,14 @@ rules:
 - RULE-SET,Game,Gaming 🎮 (Lobby Games) • TCP
 - RULE-SET,Gaming,Gaming 🎮 (Lobby Games) • TCP
 - RULE-SET,Port-Games,Gaming 🎮 (In-Game) • UDP
+- RULE-SET,Port-Games-Latest,Gaming 🎮 (In-Game) • UDP
 - NOT,((RULE-SET,Umum)),Gaming 🎮 (In-Game) • UDP
   #RuleDirect
 - RULE-SET,Direct,Direct Path ♥️
 - RULE-SET,Indonesia-Service,Direct Path ♥️
-- RULE-SET,Custom-Rule-Direct,Direct Path ♥️
 - RULE-SET,GoogleFCM,Direct Path ♥️
-- RULE-SET,Port-Games,Gaming 🎮 (In-Game) • UDP
-- RULE-SET,Port-Games-Latest,Gaming 🎮 (In-Game) • UDP
   #RuleVPN
 - RULE-SET,Umum,VPN Path ♥️
-- RULE-SET,Custom-Rule-VPN,VPN Path ♥️
 - RULE-SET,Gaming,VPN Path ♥️
 - RULE-SET,Game,VPN Path ♥️
   #Results

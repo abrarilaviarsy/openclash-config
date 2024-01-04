@@ -450,6 +450,6 @@ payload:
   - DOMAIN-KEYWORD,honkaiimpact3
   - DOMAIN-KEYWORD,mihoyo
   # > PointBlank
-- DOMAIN,www.pointblank.id
-- DOMAIN,cdn.pointblank.id
-- DOMAIN-SUFFIX,zepetto.com
+  - DOMAIN,www.pointblank.id
+  - DOMAIN,cdn.pointblank.id
+  - DOMAIN-SUFFIX,zepetto.com

@@ -1,3 +1,4 @@
+#Proxy dibawah hanya sebagai contoh, untuk protokol lain silahkan isi sesuai dengan kebutuhan
 proxies:
   - name: Account 🔑 (VMESS/Port-80)
     type: vmess

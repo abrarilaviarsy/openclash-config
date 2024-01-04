@@ -2,6 +2,8 @@
 
 Credit untuk @malikshi (https://github.com/malikshi/open_clash) untuk beberapa rule yang saya sertakan didalam config ini
 
+Fitur Config: Pisah trafik untuk beberapa Game Online, Sosial Media, dan Pembayaran Online
+
 Penjelasan Folder:
 
 Config OpenClash: Config universal yang dapat dipakai oleh siapapun, tidak ada konfigurasi khusus

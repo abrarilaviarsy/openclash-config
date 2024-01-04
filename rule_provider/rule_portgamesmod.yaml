@@ -1,4 +1,4 @@
-#List Game: MLBB, PUBG Mobile, Call of Duty: Mobile, Genshin Impact
+#List Game: Mobile Legends: Bang Bang, PUBG Mobile, Call of Duty: Mobile, Genshin Impact
 payload:
 #MLBB
 - DST-PORT,5000-5221/5224-5227/5229-5241/5243-5287/5289-5352/5354-5509/5517/5520-5529/5551-5559/5601-5700/8443/9000-9010/9443/10003/30000-30300

@@ -12,3 +12,5 @@ payload:
 #Genshin Impact
 - DST-PORT,42472
 - DST-PORT,42472/22101-22102
+#Point Blank
+- DST-PORT,40000-40010

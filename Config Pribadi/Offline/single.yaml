@@ -55,18 +55,18 @@ rule-providers:
     type: file
     behavior: domain
     path: "./rule_provider/rule_games.yaml"
-  Gaming:
+  Gaming-MOD:
     type: file
     behavior: domain
-    path: "./rule_provider/rule_gaming.yaml"
-  Port-Games:
+    path: "./rule_provider/rule_gamingmod.yaml"
+  Port-Games-MOD:
     type: file
     behavior: domain
-    path: "./rule_provider/rule_portgames.yaml"
-  Port-Games-Latest:
+    path: "./rule_provider/rule_portgamemod.yaml"
+  Port-Games-Latest-MOD:
     type: file
     behavior: domain
-    path: "./rule_provider/rule_portgameslatest.yaml"
+    path: "./rule_provider/rule_portgamesmod.yaml"
   Direct:
     type: file
     behavior: classical

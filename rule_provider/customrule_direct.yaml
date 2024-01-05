@@ -1,7 +1,7 @@
 payload:
 #Domain-Suffix
 - DOMAIN-SUFFIX,duolingo.com
-- DOMAIN-SUFFIX,liveon.id
+- DOMAIN-SUFFIX,www.liveon.id
 
 #Domain-Keyword
 - DOMAIN-KEYWORD,duolingo

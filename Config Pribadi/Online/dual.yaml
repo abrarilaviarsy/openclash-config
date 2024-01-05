@@ -94,23 +94,23 @@ rule-providers:
     url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_games.yaml
     path: "./rule_provider/rule_games.yaml"
     interval: 86400 # Pembaruan setiap 4 jam sekali
-  Gaming:
+  Gaming-MOD:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_gaming.yaml
-    path: "./rule_provider/rule_gaming.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_gamingmod.yaml
+    path: "./rule_provider/rule_gamingmod.yaml"
     interval: 86400 # Pembaruan setiap 4 jam sekali
-  Port-Games:
+  Port-Games-MOD:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/malikshi/open_clash/main/rule_provider/rule_portgames.yaml
-    path: "./rule_provider/rule_portgames.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_portgamemod.yaml
+    path: "./rule_provider/rule_portgamemod.yaml"
     interval: 86400 # Pembaruan setiap 4 jam sekali
-  Port-Games-Latest:
+  Port-Games-Latest-MOD:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_portgameslatest.yaml
-    path: "./rule_provider/rule_portgameslatest.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_portgamesmod.yaml
+    path: "./rule_provider/rule_portgamesmod.yaml"
   Direct:
     type: http
     behavior: classical
@@ -120,7 +120,7 @@ rule-providers:
   Indonesia-Service:
     type: http
     behavior: classical
-    path: "./rule_provider/rule_direct.yaml"
+    path: "./rule_provider/rule_indo.yaml"
     url: https://raw.githubusercontent.com/abrarilaviarsy/openclash/main/rule_provider/rule_indo.yaml
     interval: 86400 # Pembaruan setiap 4 jam sekali
   GoogleFCM:

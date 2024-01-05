@@ -13,6 +13,7 @@ proxy-groups:
     type: select
     disable-udp: false
     interface-name: eth1
+    proxies: [REJECT]
     use: [Account-Provider 🔌]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
@@ -20,6 +21,7 @@ proxy-groups:
     type: select
     disable-udp: false
     interface-name: wwan0
+    proxies: [REJECT]
     use: [Account-Provider 🔌]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
@@ -27,6 +29,7 @@ proxy-groups:
     type: select
     disable-udp: false
     interface-name: usb0
+    proxies: [REJECT]
     use: [Account-Provider 🔌]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
@@ -163,9 +166,9 @@ rules:
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
   #RuleGames
 - RULE-SET,Game,Gaming 🎮 (Lobby Games) • TCP
-- RULE-SET,Gaming,Gaming 🎮 (Lobby Games) • TCP
-- RULE-SET,Port-Games,Gaming 🎮 (In-Game) • UDP
-- RULE-SET,Port-Games-Latest,Gaming 🎮 (In-Game) • UDP
+- RULE-SET,Gaming-MOD,Gaming 🎮 (Lobby Games) • TCP
+- RULE-SET,Port-Games-MOD,Gaming 🎮 (In-Game) • UDP
+- RULE-SET,Port-Games-Latest-MOD,Gaming 🎮 (In-Game) • UDP
 - NOT,((RULE-SET,Umum)),Gaming 🎮 (In-Game) • UDP
   #RuleDirect
 - RULE-SET,Direct,Direct Path ♥️
@@ -173,10 +176,8 @@ rules:
 - RULE-SET,GoogleFCM,Direct Path ♥️
   #RuleVPN
 - RULE-SET,Umum,VPN Path ♥️
-- RULE-SET,Gaming,VPN Path ♥️
+- RULE-SET,Gaming-MOD,VPN Path ♥️
 - RULE-SET,Game,VPN Path ♥️
-  #DomainSite
-- DOMAIN-SUFFIX,www.liveon.id,DIRECT
   #Results
 - MATCH,Proxies 🚦
 #Configuration

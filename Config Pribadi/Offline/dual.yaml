@@ -154,10 +154,13 @@ rules:
 - RULE-SET,Direct,Direct Path ♥️
 - RULE-SET,Indonesia-Service,Direct Path ♥️
 - RULE-SET,GoogleFCM,Direct Path ♥️
+- RULE-SET,Custom-Rule-Direct,Direct Path ♥️
   #RuleVPN
 - RULE-SET,Umum,VPN Path ♥️
 - RULE-SET,Gaming-MOD,VPN Path ♥️
 - RULE-SET,Game,VPN Path ♥️
+- RULE-SET,Speedtest,VPN Path ♥️
+- RULE-SET,Custom-Rule-VPN,VPN Path ♥️
   #Results
 - MATCH,Proxies 🚦
 #Configuration

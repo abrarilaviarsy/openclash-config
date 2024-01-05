@@ -36,44 +36,44 @@ proxy-groups:
   - name: Gaming 🎮 (Lobby Games) • TCP
     type: select
     disable-udp: false
-    proxies: [Direct Game - eth1 🕹️, Direct Game - wwan0 🕹️, Direct Game - usb0 🕹️, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    proxies: [DIRECT - eth1 📌, DIRECT - wwan0 📌, DIRECT - usb0 📌, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
   - name: Gaming 🎮 (In-Game) • UDP
     type: select
     disable-udp: false
-    proxies: [Direct Game - eth1 🕹️, Direct Game - wwan0 🕹️, Direct Game - usb0 🕹️, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    proxies: [DIRECT - eth1 📌, DIRECT - wwan0 📌, DIRECT - usb0 📌, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
   - name: Direct Path ♥️
     type: select
     disable-udp: false
-    proxies: [Direct Game - eth1 🕹️, Direct Game - wwan0 🕹️, Direct Game - usb0 🕹️, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    proxies: [DIRECT - eth1 📌, DIRECT - wwan0 📌, DIRECT - usb0 📌, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
   - name: VPN Path ♥️
     type: select
     disable-udp: false
-    proxies: [Direct Game - eth1 🕹️, Direct Game - wwan0 🕹️, Direct Game - usb0 🕹️, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
+    proxies: [DIRECT - eth1 📌, DIRECT - wwan0 📌, DIRECT - usb0 📌, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
-  #PisahTrafik - Games
+  #PisahTrafik
   #Sesuaikan dengan interface-name yang terdeteksi
-  - name: Direct Game - eth1 🕹️
+  - name: DIRECT - eth1 📌
     type: select
     disable-udp: false
     interface-name: eth1
     proxies: [DIRECT, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
-  - name: Direct Game - wwan0 🕹️
+  - name: DIRECT - wwan0 📌
     type: select
     disable-udp: false
     interface-name: wwan0
     proxies: [DIRECT, REJECT, Account 1 - eth1 ⚡, Account 2 - wwan0 ⚡, Account 3 - usb0 ⚡]
     url: http://cp.cloudflare.com/generate_204
     interval: '300'
-  - name: Direct Game - usb0 🕹️
+  - name: DIRECT - usb0 📌
     type: select
     disable-udp: false
     interface-name: usb0

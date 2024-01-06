@@ -6,39 +6,39 @@ proxy-groups:
   - name: Proxies 🚦
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
-  - name: Account ⚡
+  - name: Account 🔗
     type: select
     disable-udp: false
     proxies: [REJECT]
     use: [Account-Provider 🔌]
-    url: http://cp.cloudflare.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: '300'
   - name: Gaming 🎮 (Lobby Games) • TCP
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
   - name: Gaming 🎮 (In-Game) • UDP
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
   - name: Direct Path ♥️
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
   - name: VPN Path ♥️
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
 #ProxyProviders
 proxy-providers:

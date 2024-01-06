@@ -428,10 +428,6 @@ payload:
   - DOMAIN-SUFFIX,awsglobalaccelerator.com
   - DOMAIN-KEYWORD,mgapex
   - DOMAIN-KEYWORD,devmgapex
-# > Konami
-  - DOMAIN-SUFFIX,konami.net
-  - DOMAIN-KEYWORD,konami
-  - DOMAIN-SUFFIX,applilink.jp
 # > Growtopia
   - DOMAIN-SUFFIX,growtopia1.com
   - DOMAIN-SUFFIX,growtopia2.com
@@ -449,7 +445,14 @@ payload:
   - DOMAIN-KEYWORD,genshinimpact
   - DOMAIN-KEYWORD,honkaiimpact3
   - DOMAIN-KEYWORD,mihoyo
-  # > PointBlank
+# > PointBlank
   - DOMAIN,www.pointblank.id
   - DOMAIN,cdn.pointblank.id
   - DOMAIN-SUFFIX,zepetto.com
+# > eFootball (KONAMI)
+  - DOMAIN-KEYWORD,konami
+  - DOMAIN-SUFFIX,konami.net
+  - DOMAIN-SUFFIX,konami.com
+  - DOMAIN-SUFFIX,pes21-x64-gate.cs.konami.net
+  - DOMAIN-SUFFIX,pes21-x64-stun.cs.konami.net
+  - DOMAIN-SUFFIX,applilink.jp

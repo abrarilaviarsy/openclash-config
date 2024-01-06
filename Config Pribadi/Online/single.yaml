@@ -6,39 +6,39 @@ proxy-groups:
   - name: Proxies 🚦
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
-  - name: Account ⚡
+  - name: Account 🔗
     type: select
     disable-udp: false
     proxies: [REJECT]
     use: [Account-Provider 🔌]
-    url: http://cp.cloudflare.com/generate_204
+    url: http://www.gstatic.com/generate_204
     interval: '300'
   - name: Gaming 🎮 (Lobby Games) • TCP
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
   - name: Gaming 🎮 (In-Game) • UDP
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
   - name: Direct Path ♥️
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
   - name: VPN Path ♥️
     type: select
     disable-udp: false
-    proxies: [DIRECT, REJECT, Account ⚡]
-    url: http://cp.cloudflare.com/generate_204
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
     interval: '300'
 #ProxyProviders
 proxy-providers:
@@ -47,7 +47,7 @@ proxy-providers:
     path: "./proxy_provider/account.yaml"
     health-check:
       enable: true
-      url: http://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 300
 #RuleProviders
 #RuleUpdate: Setiap rule-providers akan memperbarui listnya secara otomatis setiap 4 jam sekali
@@ -135,10 +135,13 @@ rules:
 - RULE-SET,Direct,Direct Path ♥️
 - RULE-SET,Indonesia-Service,Direct Path ♥️
 - RULE-SET,GoogleFCM,Direct Path ♥️
+- RULE-SET,Custom-Rule-Direct,Direct Path ♥️
   #RuleVPN
 - RULE-SET,Umum,VPN Path ♥️
 - RULE-SET,Gaming-MOD,VPN Path ♥️
 - RULE-SET,Game,VPN Path ♥️
+- RULE-SET,Speedtest,VPN Path ♥️
+- RULE-SET,Custom-Rule-VPN,VPN Path ♥️
   #Results
 - MATCH,Proxies 🚦
 #Configuration

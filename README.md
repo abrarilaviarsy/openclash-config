@@ -11,3 +11,8 @@ Config OpenClash: Config universal yang dapat dipakai oleh siapapun, tidak ada k
 Config Pribadi: Config universal yang terdapat konfigurasi khusus untuk saya pribadi
 
 Config Lama: Config lama yang saya buat, kemungkinan ada beberapa konfigurasi yang tidak relevan
+
+Penjelasan Config:
+
+dual.yaml: Settingan Config OC untuk Dual Modem (cocok untuk pisah trafik)
+single.yaml: Settingan Config OC untuk satu modem

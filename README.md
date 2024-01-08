@@ -15,4 +15,5 @@ Config Lama: Config lama yang saya buat, kemungkinan ada beberapa konfigurasi ya
 Penjelasan Config:
 
 dual.yaml: Settingan Config OC untuk Dual Modem (cocok untuk pisah trafik)
+
 single.yaml: Settingan Config OC untuk satu modem

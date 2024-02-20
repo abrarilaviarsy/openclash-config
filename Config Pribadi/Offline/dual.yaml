@@ -80,6 +80,15 @@ proxy-groups:
     proxies: [DIRECT, REJECT, Account 🔗 • eth1, Account 🔗 • wwan0, Account 🔗 • usb0]
     url: http://www.gstatic.com/generate_204
     interval: '300'
+#ProxyProviders
+proxy-providers:
+  Account-Provider 🔌:
+    type: file
+    path: "./proxy_provider/account.yaml"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 300
 #RuleProviders
 #RuleUpdate: Setiap rule-providers akan memperbarui listnya secara otomatis setiap 4 jam sekali
 rule-providers:

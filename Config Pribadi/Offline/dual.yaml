@@ -147,7 +147,7 @@ rules:
   #RuleGames
 - RULE-SET,Game,Gaming 🎮 (Lobby Games) • TCP
 - RULE-SET,Gaming-MOD,Gaming 🎮 (Lobby Games) • TCP
-- RULE-SET,Port-Games-MOD,Gaming 🎮 (In-Game) • UDP
+# - RULE-SET,Port-Games-MOD,Gaming 🎮 (In-Game) • UDP
 - RULE-SET,Port-Games-Latest-MOD,Gaming 🎮 (In-Game) • UDP
 - NOT,((RULE-SET,Umum)),Gaming 🎮 (In-Game) • UDP
   #RuleDirect

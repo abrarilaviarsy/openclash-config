@@ -116,7 +116,8 @@ rules:
 - RULE-SET,Game,Gaming 🎮 (Lobby Games) • TCP
 - RULE-SET,Gaming-MOD,Gaming 🎮 (Lobby Games) • TCP
 - RULE-SET,Port-Games-Latest-MOD,Gaming 🎮 (In-Game) • UDP
-  #RuleDirect
+  #Rule
+- RULE-SET,NSFW,NSFW 🚫
 - RULE-SET,Custom-Rule-Direct,Direct Path ♥️
   #Results
 - MATCH,GLOBAL

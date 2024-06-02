@@ -1,0 +1,147 @@
+#Made with ♥️ by Abrari Laviarsy
+#Aktifkan Meta Core untuk menjalankan config
+proxies:
+#ProxyGroups
+proxy-groups:
+  - name: Account 🔗
+    type: select
+    disable-udp: false
+    proxies: [REJECT]
+    use: [Account-Provider 🔌]
+    url: http://www.gstatic.com/generate_204
+    interval: '300'
+  - name: Gaming 🎮 (Lobby Games) • TCP
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
+    interval: '300'
+  - name: Gaming 🎮 (In-Game) • UDP
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
+    interval: '300'
+  - name: NSFW 🚫
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT]
+    url: http://www.gstatic.com/generate_204
+    interval: '300'
+  - name: Direct Path ♥️
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT, Account 🔗]
+    url: http://www.gstatic.com/generate_204
+    interval: '300'
+#RuleProviders
+#RuleUpdate: Setiap rule-providers akan memperbarui listnya secara otomatis setiap 4 jam sekali
+#ProxyProviders
+proxy-providers:
+  Account-Provider 🔌:
+    type: file
+    path: "./proxy_provider/account.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+rule-providers:
+  Game:
+    type: file
+    behavior: domain
+    path: "./rule_provider/games.yaml"
+  Gaming-MOD:
+    type: file
+    behavior: domain
+    path: "./rule_provider/gamingmod.yaml"
+  Port-Games-Latest-MOD:
+    type: file
+    behavior: classical
+    path: "./rule_provider/portgames.yaml"
+  NSFW:
+    type: file
+    behavior: domain
+    path: "./rule_provider/nsfw.yaml"
+  Custom-Rule-Direct:
+    type: file
+    behavior: domain
+    path: "./rule_provider/direct.yaml"
+#RuleProviders
+rules:
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+  #RuleGames
+- RULE-SET,Game,Gaming 🎮 (Lobby Games) • TCP
+- RULE-SET,Gaming-MOD,Gaming 🎮 (Lobby Games) • TCP
+- RULE-SET,Port-Games-Latest-MOD,Gaming 🎮 (In-Game) • UDP
+  #Rule
+- RULE-SET,NSFW,NSFW 🚫
+- RULE-SET,Custom-Rule-Direct,Direct Path ♥️
+  #Results
+- MATCH,GLOBAL
+#Configuration
+tproxy-port: 7895
+redir-port: 7892
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+unified-delay: true
+external-controller: 0.0.0.0:9090
+secret: sign
+bind-address: 0.0.0.0
+external-ui: ui
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 127.0.0.1:5053
+  nameserver:
+  - https://dns.google/dns-query
+  - tls://dns.google
+  - 8.8.8.8:53
+  - tcp://8.8.8.8:53
+  fallback:
+  - https://dns.google/dns-query
+  - tls://dns.google
+  - 8.8.8.8:53
+  - tcp://8.8.8.8:53
+  fallback-filter:
+    geoip: false
+    ipcidr:
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.18.0.0/15
+    - 198.51.100.0/24
+    - 203.0.113.0/24
+    - 224.0.0.0/4
+    - 240.0.0.0/4
+    - 255.255.255.255/32
+experimental:
+  ignore-resolve-fail: true
+ipv6: false
+tun:
+  enable: true
+  stack: system
+  mtu: 65535
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+  - tcp://any:53
+profile:
+  store-selected: true
+  store-fakeip: true
+  store-fake-ip: true

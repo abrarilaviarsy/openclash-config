@@ -1,0 +1,143 @@
+#Made with ♥️ by Abrari Laviarsy
+#Aktifkan Meta Core untuk menjalankan config
+proxies:
+#ProxyGroups
+proxy-groups:
+  - name: Account 🔗
+    type: select
+    disable-udp: false
+    proxies: [DIRECT, REJECT]
+    use: [Account-Provider 🔌]
+    url: http://www.gstatic.com/generate_204
+    interval: '300'
+#RuleProviders
+#RuleUpdate: Setiap rule-providers akan memperbarui listnya secara otomatis setiap 4 jam sekali
+#ProxyProviders
+proxy-providers:
+  Account-Provider 🔌:
+    type: file
+    path: "./proxy_provider/account.yaml"
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+rule-providers:
+  NSFW:
+    type: http
+    behavior: domain
+    path: "./rule_provider/nsfw.yaml"
+    url: https://raw.githubusercontent.com/abrarilaviarsy/openclash_adblock/refs/heads/main/oisd_nsfw.yaml
+    interval: 86400
+#RuleProviders
+rules:
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- DST-PORT,7895,REJECT
+- DST-PORT,7892,REJECT
+- IP-CIDR,198.18.0.1/16,REJECT,no-resolve
+  #Rule
+- RULE-SET,NSFW,REJECT
+  #Results
+- MATCH,GLOBAL
+#Configuration
+redir-port: 7892
+port: 7890
+socks-port: 7891
+mixed-port: 7893
+mode: rule
+log-level: silent
+allow-lan: true
+unified-delay: true
+external-controller: 0.0.0.0:9090
+secret: 12345
+bind-address: 0.0.0.0
+external-ui: ui
+tproxy-port: 7895
+tcp-concurrent: true	
+enable-process: true
+find-process-mode: always
+ipv6: true
+experimental:
+  ignore-resolve-fail: true
+  sniff-tls-sni: true
+  tracing: true
+hosts:
+  "localhost": 127.0.0.1
+profile:
+  store-selected: true
+  store-fake-ip: true
+tun:
+  enable: true
+  prefer-h3: true
+  listen: 0.0.0.0:53
+  stack: gvisor
+  dns-hijack:
+     - "any:53"
+     - "tcp://any:53"
+  auto-redir: true
+  auto-route: true
+  auto-detect-interface: true
+dns:
+  enable: true
+  ipv6: true
+  default-nameserver:
+    - '94.140.14.14'
+  nameserver:
+    - "https://dns.adguard-dns.com/dns-query"
+  use-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - 'stun.*.*'
+    - 'stun.*.*.*'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+    - '*.lan'
+    - '+.msftncsi.com'
+    - msftconnecttest.com
+    - 'time?.*.com'
+    - 'time.*.com'
+    - 'time.*.gov'
+    - 'time.*.apple.com'
+    - time-ios.apple.com
+    - 'time1.*.com'
+    - 'time2.*.com'
+    - 'time3.*.com'
+    - 'time4.*.com'
+    - 'time5.*.com'
+    - 'time6.*.com'
+    - 'time7.*.com'
+    - 'ntp?.*.com'
+    - 'ntp.*.com'
+    - 'ntp1.*.com'
+    - 'ntp2.*.com'
+    - 'ntp3.*.com'
+    - 'ntp4.*.com'
+    - 'ntp5.*.com'
+    - 'ntp6.*.com'
+    - 'ntp7.*.com'
+    - '+.pool.ntp.org'
+    - '+.ipv6.microsoft.com'
+    - speedtest.cros.wr.pvp.net
+    - network-test.debian.org
+    - detectportal.firefox.com
+    - cable.auth.com
+    - miwifi.com
+    - routerlogin.com
+    - routerlogin.net
+    - tendawifi.com
+    - tendawifi.net
+    - tplinklogin.net
+    - tplinkwifi.net
+    - '*.xiami.com'
+    - tplinkrepeater.net
+    - router.asus.com
+    - '*.*.*.srv.nintendo.net'
+    - '*.*.stun.playstation.net'
+    - '*.openwrt.pool.ntp.org'
+    - resolver1.opendns.com
+    - 'GC._msDCS.*.*'
+    - 'DC._msDCS.*.*'
+    - 'PDC._msDCS.*.*'

@@ -83,7 +83,7 @@ dns:
   default-nameserver:
     - '1.1.1.1'
   nameserver:
-    - "https://1.1.1.1/dns-query"
+    - "https://cloudflare-dns.com/dns-query"
   use-hosts: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
